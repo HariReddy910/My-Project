@@ -37,11 +37,7 @@ pipeline{
               }
             }
           }
-        stage ('Java Code Coverage') {
-				steps {
-        			publishHTML([allowMissing: true, alwaysLinkToLastBuild: false, keepAll: true, reportDir: 'target/site/jacoco/', reportFiles: 'index.html', reportName: 'Code Coverage Report', reportTitles: 'Code Coverage Report'])
-				}
-			}
+       
 	
 			stage ('Publishing Test Results') {
 				steps {
