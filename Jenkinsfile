@@ -38,12 +38,6 @@ pipeline{
             }
           }
        
-	
-			stage ('Publishing Test Results') {
-				steps {
-					junit allowEmptyResults: true, testResults: 'target/surefire-reports/*.xml'	
-				}
-			}
        
         stage("Deployment-AppServer"){
             steps{
