@@ -26,7 +26,7 @@ pipeline{
                   withSonarQubeEnv('SonarQube') {
                  sh label: '', script: 'mvn package sonar:sonar'
                  echo "archeiving Artifacts" 
-                 //archiveArtifacts '**/*.jar'
+                 archiveArtifacts '**/*.jar'
                   }     
             }
         }
@@ -39,12 +39,12 @@ pipeline{
           }
        
        
-        stage("Deployment-AppServer"){
-            steps{
-                echo "hi"
-                sh label: '', script: 'scp /var/lib/jenkins/workspace/My-Project/webapp/target/webapp.war ubuntu@172.31.26.148:/var/lib/tomcat9/webapps/My-Project.v15.0.war'
-            }
-        }
+      //  stage("Deployment-AppServer"){
+            //steps{
+              //  echo "hi"
+            //    sh label: '', script: 'scp /var/lib/jenkins/workspace/My-Project/webapp/target/webapp.war ubuntu@172.31.26.148:/var/lib/tomcat9/webapps/My-Project.v15.0.war'
+          //  }
+        //}
        
            stage('uploading artifacts to Jfrog artfactory') {
            steps {
