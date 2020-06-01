@@ -1,5 +1,9 @@
     <project>
-      <modelVersion>4.0.0</modelVersion>
+      
+        <modelVersion>4.0.0</modelVersion>  
+      <groupId>com.harindra.app</groupId>  
+       <artifactId>app-v.15.0</artifactId>  
+          <version>1</version>  
      
       <repositories>
         <repository>
