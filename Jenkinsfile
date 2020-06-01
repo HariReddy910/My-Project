@@ -26,7 +26,7 @@ pipeline{
                   withSonarQubeEnv('SonarQube') {
                  sh label: '', script: 'mvn package sonar:sonar'
                  echo "archeiving Artifacts" 
-                 archiveArtifacts '**/*.war'
+                 archiveArtifacts '**/*.jar'
                   }     
             }
         }
