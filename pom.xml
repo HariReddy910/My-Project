@@ -2,7 +2,8 @@
       
         <modelVersion>4.0.0</modelVersion>  
       <groupId>com.harindra.app</groupId>  
-       <artifactId>app-v.15.0</artifactId>  
+      
+                <artifactId>maven-war-plugin</artifactId>
           <version>1</version>  
      
       <repositories>
