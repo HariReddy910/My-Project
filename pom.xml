@@ -40,7 +40,13 @@
           <target>1.6</target>
         </configuration>
       </plugin>
-
+                                                           <plugin>
+	    <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-war-plugin</artifactId>
+            <configuration>
+            <webXml>src\main\webapp\WEB-INF\web.xml</webXml>        
+             </configuration>
+             </plugin>
    
 
       <plugin>
@@ -57,12 +63,7 @@
           <plugin>         
 		  
 		  
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-war-plugin</artifactId>
-            <configuration>
-            <webXml>src\main\webapp\WEB-INF\web.xml</webXml>        
-             </configuration>
-             </plugin>
+            
 		  
             <plugin>
               <artifactId>maven-javadoc-plugin</artifactId>
@@ -75,14 +76,14 @@
             <plugin>
               <artifactId>maven-surefire-report-plugin</artifactId>
             </plugin>
+		  
+		  
              <plugin>
            <artifactId>maven-war-plugin</artifactId>
            <version>3.0.0</version>
 		  </plugin>
-		  plugin>
-          <artifactId>maven-site-plugin</artifactId>
-          <version>3.0</version>
-        </plugin>
+		  
+          
             <plugin>
               <groupId>org.codehaus.mojo</groupId>
               <artifactId>findbugs-maven-plugin</artifactId>
