@@ -39,12 +39,12 @@ pipeline{
           }
        
        
-      //  stage("Deployment-AppServer"){
-            //steps{
-              //  echo "hi"
-            //    sh label: '', script: 'scp /var/lib/jenkins/workspace/My-Project/webapp/target/webapp.war ubuntu@172.31.26.148:/var/lib/tomcat9/webapps/My-Project.v15.0.war'
-          //  }
-        //}
+      stage("Deployment-AppServer"){
+            steps{
+              echo "hi"
+             sh label: '', script: 'scp /var/lib/jenkins/workspace/My-Project/webapp/target/webapp.war ubuntu@172.31.2.23:/opt/tomcat9/webapps/My-Project.v15.0.war'
+           }
+      }
        
            stage('uploading artifacts to Jfrog artfactory') {
            steps {
@@ -53,7 +53,7 @@ pipeline{
                  def uploadSpec = """{ 
                    "files": [{
                        "pattern": "**/*.war",
-                       "target": "Jfrog-harindra-artifactory"
+                       "target": "release"
     
                        
                     }]
