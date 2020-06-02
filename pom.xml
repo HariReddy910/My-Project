@@ -60,11 +60,8 @@
             <plugin>
               <artifactId>maven-jxr-plugin</artifactId>
             </plugin>
-          <plugin>         
-		  
-		  
-            
-		  
+                
+		   
             <plugin>
               <artifactId>maven-javadoc-plugin</artifactId>
             </plugin>
