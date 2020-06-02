@@ -2,7 +2,7 @@
       
         <modelVersion>4.0.0</modelVersion>  
       <groupId>com.harindra.app</groupId>  
-      <packaging>war</packaging>
+      <packaging>jar</packaging>
                 <artifactId>maven-war-plugin</artifactId>
           <version>1</version>  
      
