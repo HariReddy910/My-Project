@@ -310,10 +310,21 @@
                     </includes>
                 </configuration>
             </plugin>
-            <plugin>
+           <!-- 
+  <plugin>
   <artifactId>maven-war-plugin</artifactId>
-  <version>3.6.0</version>
-</plugin>
+  <version>3.0.0</version>
+</plugin> 
+
+-->
+	<plugin>            
+  <groupId>org.apache.maven.plugins</groupId>
+  <artifactId>maven-war-plugin</artifactId>
+  <configuration>
+    <webXml>src\main\webapp\WEB-INF\web.xml</webXml>        
+  </configuration>
+</plugin>	
+		
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-eclipse-plugin</artifactId>
