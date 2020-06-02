@@ -99,16 +99,7 @@
         <plugin>
           <artifactId>maven-compiler-plugin</artifactId>
           <version>2.3.2</version>
-        </plugin>
-	      <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-war-plugin</artifactId>
-                <version>2.1.1</version>
-                <configuration>
-                  <!--webappDirectory>/sample/servlet/container/deploy/directory</webappDirectory-->
-                  <packagingExcludes>**/web.xml</packagingExcludes>
-                </configuration>
-            </plugin>
+        
 
         <plugin>
           <artifactId>maven-javadoc-plugin</artifactId>
