@@ -1,4 +1,4 @@
-currentBuild.displayName="My-Project.v15.0-#"+currentBuild.number
+currentBuild.displayName="Hospital-Mang-Syatem-#"+currentBuild.number
 pipeline{
     agent any
  //   options {
@@ -16,34 +16,34 @@ pipeline{
                 extensions: [[$class: 'CleanBeforeCheckout']], 
                 submoduleCfg: [], 
                 userRemoteConfigs: [[credentialsId: 'github_credentials', 
-                url: 'https://github.com/HariReddy910/My-Project']]])
+                url: 'https://github.com/HariReddy910/Hospital-Management-System.git']]])
                 echo "Download finished form SCM"
             }
         }
       //  stage("Build")
       //  {
            // steps{
-                //  withSonarQubeEnv('SonarQube')sonar:sonar {
-             //    sh label: '', script: 'mvn package '
+                //  withSonarQubeEnv('SonarQube') {
+             //    sh label: '', script: 'mvn package sonar:sonar '
               //   echo "archeiving Artifacts" 
                //  archiveArtifacts '**/*.war'
                 //  }     
          //   }
       //  }
-   stage('SonarQube analysis') {
-       steps{
-        withSonarQubeEnv('SonarQube') {
-            sh 'mvn clean package sonar:sonar'
+        stage("Build"){
+            steps{
+                sh label: '', script: 'mvn package'
+                archiveArtifacts '**/*.war'
+            } 
         }
-    }
-}
+
 
        
        
       stage("Deployment-AppServer"){
             steps{
               echo "hi"
-             sh label: '', script: 'scp /var/lib/jenkins/workspace/My-Project/webapp/target/webapp.war ubuntu@172.31.2.23:/opt/tomcat9/webapps/My-Project.v15.0.war'
+             sh label: '', script: 'scp /var/lib/jenkins/workspace/Hosiptal_Management/webapp/target/webapp.war ubuntu@172.31.2.23:/opt/tomcat9/webapps/HSPMS.war'
            }
       }
        
