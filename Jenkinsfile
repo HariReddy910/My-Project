@@ -35,7 +35,7 @@ pipeline{
             sh 'mvn clean package sonar:sonar'
         }
     }
-}
+//}
 stage("Quality Gate") {
     timeout(time: 1, unit: 'HOURS') { 
         def qg = waitForQualityGate() 
