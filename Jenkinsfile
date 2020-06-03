@@ -20,14 +20,14 @@ pipeline{
                 echo "Download finished form SCM"
             }
         }
-      
+        stage("Build & sonar Analyze"){
         steps {
             timeout(time: 1, unit: 'MINUTE') {
-                waitForQualityGate abortPipeline: tru
+                waitForQualityGate abortPipeline: true
               withSonarQubeEnv('SonarQube') {
                 sh 'mvn clean package sonar:sonar'
                   archiveArtifacts '**/*.war'
-              }
+              }}
             }
           }
           stage("Quality Gate") {
