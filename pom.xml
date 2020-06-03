@@ -4,6 +4,8 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 
   <modelVersion>4.0.0</modelVersion>
+	
+
 
   <groupId>com.example.maven-project</groupId>
   <artifactId>maven-project</artifactId>
@@ -17,6 +19,16 @@
     <project.build.sourceEncoding>utf-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>utf-8</project.reporting.outputEncoding>
   </properties>
+	
+	 <properties>
+        <sonar.version>6.7.6</sonar.version>
+        <!-- Configuration for sonar-packaging-maven-plugin -->
+        <sonar.pluginClass>org.sonar.dependencycheck.DependencyCheckPlugin</sonar.pluginClass>
+        <sonar.pluginName>Dependency-Check</sonar.pluginName>
+        <sonar.pluginKey>dependencycheck</sonar.pluginKey>
+     <!--   <junit.jupiter.version>5.5.2</junit.jupiter.version>
+        <jackson.version>2.10.3</jackson.version> -->
+    </properties>
 
   <modules>
     <module>server</module>
