@@ -83,7 +83,7 @@
 				  <phase>packge</phase>
 				  <goals>
 			 	 <goal>report</goal>
-			  	</goal>
+			  	</goals>
   				</execution>
   				</executions>
   				</plugin>
