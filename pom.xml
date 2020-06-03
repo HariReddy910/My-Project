@@ -21,13 +21,7 @@
   </properties> 
 
 
-  <name>SonarQube Scanner for Jenkins</name>
-  <url>http://redirect.sonarsource.com/plugins/jenkins.html</url>
-  <inceptionYear>2007</inceptionYear>
-  <organization>
-    <name>SonarSource</name>
-    <url>https://sonarsource.com</url>
-  </organization>
+
   <ciManagement>
     <system>Travis</system>
     <url>https://travis-ci.org/SonarSource/sonar-scanner-jenkins</url>
