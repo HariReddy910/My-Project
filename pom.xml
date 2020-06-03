@@ -19,10 +19,7 @@
     <project.build.sourceEncoding>utf-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>utf-8</project.reporting.outputEncoding>
   </properties> 
-	
-	 <artifactId>sonar</artifactId>
-  <version>2.12-SNAPSHOT</version>
-  <packaging>hpi</packaging>
+
 
   <name>SonarQube Scanner for Jenkins</name>
   <url>http://redirect.sonarsource.com/plugins/jenkins.html</url>
