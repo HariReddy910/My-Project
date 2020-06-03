@@ -31,7 +31,7 @@ pipeline{
          //   }
       //  }
    stage('SonarQube analysis') {
-        withSonarQubeEnv('My SonarQube Server') {
+        withSonarQubeEnv('SonarQube') {
             sh 'mvn clean package sonar:sonar'
         }
     }
@@ -43,7 +43,7 @@ stage("Quality Gate") {
             error "Pipeline aborted due to quality gate failure: ${qg.status}"
         }
     }
-}
+
        
        
       stage("Deployment-AppServer"){
