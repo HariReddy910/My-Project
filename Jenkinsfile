@@ -22,6 +22,8 @@ pipeline{
         }
       
         steps {
+            timeout(time: 1, unit: 'MINUTE') {
+                waitForQualityGate abortPipeline: tru
               withSonarQubeEnv('SonarQube') {
                 sh 'mvn clean package sonar:sonar'
                   archiveArtifacts '**/*.war'
