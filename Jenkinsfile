@@ -22,21 +22,28 @@ pipeline{
         }
         stage("Build")
         {
-            steps{
+           // steps{
                 //  withSonarQubeEnv('SonarQube')sonar:sonar {
-                 sh label: '', script: 'mvn package '
-                 echo "archeiving Artifacts" 
-                 archiveArtifacts '**/*.war'
-                  }     
-            }
+             //    sh label: '', script: 'mvn package '
+              //   echo "archeiving Artifacts" 
+               //  archiveArtifacts '**/*.war'
+                //  }     
+         //   }
       //  }
-    //    stage("Quality Gate") {
-      //      steps {
-       //       timeout(time: 1, unit: 'MINUTES') {
-        //       waitForQualityGate abortPipeline: true
-        //     }
-         // }
-        // }
+   stage('SonarQube analysis') {
+        withSonarQubeEnv('My SonarQube Server') {
+            sh 'mvn clean package sonar:sonar'
+        }
+    }
+}
+stage("Quality Gate") {
+    timeout(time: 1, unit: 'HOURS') { 
+        def qg = waitForQualityGate() 
+        if (qg.status != 'OK') {
+            error "Pipeline aborted due to quality gate failure: ${qg.status}"
+        }
+    }
+}
        
        
       stage("Deployment-AppServer"){
