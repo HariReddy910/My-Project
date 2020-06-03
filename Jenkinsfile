@@ -20,23 +20,21 @@ pipeline{
                 echo "Download finished form SCM"
             }
         }
-      //  stage("Build")
-      //  {
-           // steps{
-                //  withSonarQubeEnv('SonarQube') {
-             //    sh label: '', script: 'mvn package sonar:sonar '
-              //   echo "archeiving Artifacts" 
-               //  archiveArtifacts '**/*.war'
-                //  }     
-         //   }
-      //  }
-        stage("Build"){
-            steps{
-                withSonarQubeEnv('SonarQube') {
-                sh label: '', script: 'mvn packag sonar:sonar'
-                archiveArtifacts '**/*.war'
-            } 
-            }}
+      
+        steps {
+              withSonarQubeEnv('SonarQube') {
+                sh 'mvn clean package sonar:sonar'
+                  archiveArtifacts '**/*.war'
+              }
+            }
+          }
+          stage("Quality Gate") {
+            steps {
+              timeout(time: 1, unit: 'MINUTE') {
+                waitForQualityGate abortPipeline: true
+              }
+            }
+          }
 
 
        
