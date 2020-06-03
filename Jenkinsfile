@@ -32,10 +32,11 @@ pipeline{
       //  }
         stage("Build"){
             steps{
-                sh label: '', script: 'mvn package'
+                withSonarQubeEnv('SonarQube') {
+                sh label: '', script: 'mvn packag sonar:sonar'
                 archiveArtifacts '**/*.war'
             } 
-        }
+            }}
 
 
        
