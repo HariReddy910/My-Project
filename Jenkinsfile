@@ -20,8 +20,8 @@ pipeline{
                 echo "Download finished form SCM"
             }
         }
-        stage("Build")
-        {
+      //  stage("Build")
+      //  {
            // steps{
                 //  withSonarQubeEnv('SonarQube')sonar:sonar {
              //    sh label: '', script: 'mvn package '
