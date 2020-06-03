@@ -23,20 +23,20 @@ pipeline{
         stage("Build")
         {
             steps{
-                  withSonarQubeEnv('SonarQube') {
-                 sh label: '', script: 'mvn package sonar:sonar'
+                //  withSonarQubeEnv('SonarQube')sonar:sonar {
+                 sh label: '', script: 'mvn package '
                  echo "archeiving Artifacts" 
                  archiveArtifacts '**/*.war'
                   }     
             }
         }
-    //  <!--  stage("Quality Gate") {
-    //        steps {
-      //        timeout(time: 1, unit: 'MINUTES') {
-       //         waitForQualityGate abortPipeline: true
-        //      }
-        //    }
-        //  } -->
+        stage("Quality Gate") {
+            steps {
+              timeout(time: 1, unit: 'MINUTES') {
+               waitForQualityGate abortPipeline: true
+             }
+          }
+         }
        
        
       stage("Deployment-AppServer"){
