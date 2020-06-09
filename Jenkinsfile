@@ -1,7 +1,9 @@
 currentBuild.displayName="Hospital-Mang-Syatem-#"+currentBuild.number
 pipeline{
     agent any
- //   options {
+ //   
+        node { label 'labelName' }
+    options {
    //   timeout(time: 1, unit: 'MINUTES') 
     //     }
  
